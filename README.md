@@ -1,4 +1,5 @@
-# 🥗 Obesity Prediction API
+# 🥗 """Obesity Prediction API
+=====================
 
 DESCRIPCIÓN DEL PROBLEMA
 -----------------------
@@ -12,19 +13,32 @@ de Machine Learning entrenado a partir de variables demográficas y antropométr
 - Altura
 - Peso
 
-El modelo se entrena de forma offline y luego se expone mediante una API REST desarrollada con FastAPI,
-permitiendo realizar predicciones a través de solicitudes HTTP.
+El modelo se entrena de forma offline y luego se expone mediante una API REST desarrollada con
+FastAPI, permitiendo realizar predicciones a través de solicitudes HTTP.
 
 
 ESTRUCTURA DEL PROYECTO
 ----------------------
 
-├── train.py          # Entrenamiento offline del modelo
-├── main.py           # API REST con FastAPI
-├── model.pkl         # Modelo entrenado
-├── encoders.pkl      # Encoders de variables categóricas
-├── requirements.txt  # Dependencias del proyecto
-└── readme.py         # Documentación del proyecto
+El proyecto está compuesto por los siguientes archivos principales:
+
+- train.py  
+  Script encargado del entrenamiento offline del modelo de Machine Learning.
+
+- main.py  
+  Archivo principal que expone el modelo entrenado mediante una API REST usando FastAPI.
+
+- model.pkl  
+  Modelo de Machine Learning previamente entrenado y serializado.
+
+- encoders.pkl  
+  Encoders utilizados para transformar variables categóricas durante la predicción.
+
+- requirements.txt  
+  Archivo que contiene las dependencias necesarias para ejecutar el proyecto.
+
+- readme.py  
+  Archivo de documentación del proyecto.
 
 
 ENTRENAMIENTO DEL MODELO
@@ -44,7 +58,7 @@ INSTRUCCIONES PARA CORRER LA API LOCALMENTE
 1. Clonar el repositorio
 
     git clone <url-del-repositorio>
-    cd obesity-prediction-api
+    cd obesity-ml-cloud-api
 
 2. Crear y activar un entorno virtual
 
@@ -104,10 +118,10 @@ El valor retornado en "prediction" corresponde a la clase de obesidad predicha p
 PLATAFORMA CLOUD USADA PARA EL DEPLOY
 -------------------------------------
 
-La API fue desplegada en Google Cloud Platform (GCP) utilizando:
+La API fue desplegada en Render, una plataforma cloud que permite el despliegue continuo de
+aplicaciones web directamente desde repositorios de GitHub.
 
-- Google Cloud Run para la ejecución de la aplicación FastAPI
-- Docker para la containerización del servicio
-
-Este enfoque permite un despliegue escalable, serverless y accesible mediante una URL pública.
+El servicio fue configurado para ejecutar una aplicación FastAPI, permitiendo que cada cambio
+en el repositorio genere automáticamente un nuevo deploy de la API, accesible mediante una URL
+pública.
 """

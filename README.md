@@ -1,5 +1,5 @@
 # 🥗 Obesity Prediction API
-=====================
+
 
 Proyecto de Machine Learning desplegado como una API REST utilizando FastAPI.
 El objetivo es predecir el nivel de obesidad de una persona a partir de

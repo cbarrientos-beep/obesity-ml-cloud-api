@@ -1,127 +1,127 @@
-# 🥗 """Obesity Prediction API
+# 🥗 Obesity Prediction API
 =====================
 
-DESCRIPCIÓN DEL PROBLEMA
------------------------
+Proyecto de Machine Learning desplegado como una API REST utilizando FastAPI.
+El objetivo es predecir el nivel de obesidad de una persona a partir de
+variables demográficas básicas.
 
-La obesidad es un problema de salud pública que puede derivar en múltiples enfermedades crónicas.
-El objetivo de este proyecto es predecir el nivel de obesidad de una persona utilizando un modelo
-de Machine Learning entrenado a partir de variables demográficas y antropométricas básicas:
+--------------------------------------------------
+Descripción del problema y del modelo
+--------------------------------------------------
 
-- Género
-- Edad
-- Altura
-- Peso
+La obesidad es un problema de salud pública que puede ser analizado a partir
+de características demográficas y físicas de una persona. En este proyecto,
+se desarrolló un modelo de Machine Learning capaz de predecir el nivel de
+obesidad utilizando las siguientes variables de entrada:
 
-El modelo se entrena de forma offline y luego se expone mediante una API REST desarrollada con
-FastAPI, permitiendo realizar predicciones a través de solicitudes HTTP.
+- Género (Gender)
+- Edad (Age)
+- Altura en metros (Height)
+- Peso en kilogramos (Weight)
 
+Estas variables son procesadas por el modelo para generar una clasificación
+del nivel de obesidad del individuo.
 
-ESTRUCTURA DEL PROYECTO
-----------------------
+El modelo es expuesto mediante una API REST desarrollada con FastAPI, lo que
+permite consumir la predicción desde aplicaciones externas o mediante
+documentación interactiva.
 
-El proyecto está compuesto por los siguientes archivos principales:
+--------------------------------------------------
+Estructura del proyecto
+--------------------------------------------------
 
 - train.py  
-  Script encargado del entrenamiento offline del modelo de Machine Learning.
+  Entrenamiento offline del modelo de Machine Learning.
 
 - main.py  
-  Archivo principal que expone el modelo entrenado mediante una API REST usando FastAPI.
+  Implementación de la API REST utilizando FastAPI.
 
 - model.pkl  
-  Modelo de Machine Learning previamente entrenado y serializado.
+  Modelo de Machine Learning entrenado.
 
 - encoders.pkl  
-  Encoders utilizados para transformar variables categóricas durante la predicción.
+  Encoders utilizados para transformar variables categóricas.
 
 - requirements.txt  
-  Archivo que contiene las dependencias necesarias para ejecutar el proyecto.
+  Dependencias necesarias para ejecutar el proyecto.
 
 - readme.py  
   Archivo de documentación del proyecto.
 
+--------------------------------------------------
+Instrucciones para correr la API localmente
+--------------------------------------------------
 
-ENTRENAMIENTO DEL MODELO
------------------------
+1. Clonar el repositorio desde GitHub.
+2. Crear y activar un entorno virtual.
+3. Instalar las dependencias del proyecto usando requirements.txt.
+4. Ejecutar la aplicación con FastAPI utilizando uvicorn.
 
-El entrenamiento del modelo se realiza de forma offline ejecutando el siguiente comando:
+La API quedará disponible por defecto en:
+http://127.0.0.1:8000
 
-    python train.py
+--------------------------------------------------
+API desplegada en la nube (Render)
+--------------------------------------------------
 
-Este proceso genera los archivos model.pkl y encoders.pkl, los cuales son utilizados
-posteriormente por la API para realizar predicciones.
+La API se encuentra desplegada en la plataforma cloud Render y es accesible
+públicamente.
 
+URL base de la API:
+https://obesity-ml-cloud-api.onrender.com
 
-INSTRUCCIONES PARA CORRER LA API LOCALMENTE
--------------------------------------------
+Documentación interactiva (Swagger UI):
+https://obesity-ml-cloud-api.onrender.com/docs#/default/predict_predict_post
 
-1. Clonar el repositorio
+Desde esta documentación es posible visualizar los endpoints disponibles
+y probar el modelo directamente desde el navegador.
 
-    git clone <url-del-repositorio>
-    cd obesity-ml-cloud-api
+Nota:
+Al utilizar el plan gratuito de Render, la primera solicitud puede tardar
+algunos segundos debido al cold start del servicio.
 
-2. Crear y activar un entorno virtual
+--------------------------------------------------
+Cómo probar el endpoint /predict desde Swagger
+--------------------------------------------------
 
-    python -m venv venv
-    source venv/bin/activate      # macOS / Linux
-    venv\\Scripts\\activate       # Windows
+Para probar la API desde el navegador, seguir los siguientes pasos:
 
-3. Instalar dependencias
+1. Acceder a la documentación Swagger:
+   https://obesity-ml-cloud-api.onrender.com/docs
 
-    pip install -r requirements.txt
+2. Ubicar el endpoint POST /predict.
 
-4. Levantar la API
+3. Presionar el botón "Try it out".
 
-    uvicorn main:app --reload
+4. Ingresar un JSON con las variables de entrada requeridas por el modelo.
 
-La API quedará disponible en:
+5. Presionar el botón "Execute".
 
-    http://127.0.0.1:8000
+6. El sistema devolverá la predicción del nivel de obesidad en formato JSON.
 
-La documentación interactiva se encuentra disponible en:
+--------------------------------------------------
+Ejemplo de input para el endpoint /predict
+--------------------------------------------------
 
-    http://127.0.0.1:8000/docs
+{
+  "Gender": "Male",
+  "Age": 25,
+  "Height": 1.75,
+  "Weight": 85
+}
 
+--------------------------------------------------
+Ejemplo de respuesta
+--------------------------------------------------
 
-EJEMPLO DE REQUEST AL ENDPOINT /predict
----------------------------------------
+{
+  "prediction": "Overweight_Level_I"
+}
 
-Endpoint:
+--------------------------------------------------
+Plataforma Cloud utilizada
+--------------------------------------------------
 
-    POST /predict
-
-Variables de entrada:
-
-- Gender (string): Género de la persona
-- Age (int): Edad en años
-- Height (float): Altura en metros
-- Weight (float): Peso en kilogramos
-
-Ejemplo de request (JSON):
-
-    {
-      "Gender": "Male",
-      "Age": 25,
-      "Height": 1.75,
-      "Weight": 85
-    }
-
-Ejemplo de respuesta:
-
-    {
-      "prediction": "Overweight_Level_I"
-    }
-
-El valor retornado en "prediction" corresponde a la clase de obesidad predicha por el modelo.
-
-
-PLATAFORMA CLOUD USADA PARA EL DEPLOY
--------------------------------------
-
-La API fue desplegada en Render, una plataforma cloud que permite el despliegue continuo de
-aplicaciones web directamente desde repositorios de GitHub.
-
-El servicio fue configurado para ejecutar una aplicación FastAPI, permitiendo que cada cambio
-en el repositorio genere automáticamente un nuevo deploy de la API, accesible mediante una URL
-pública.
-"""
+El despliegue de la API fue realizado utilizando Render, una plataforma cloud
+que permite el despliegue automático de aplicaciones a partir de repositorios
+en GitHub, integrando CI/CD de forma sencilla.

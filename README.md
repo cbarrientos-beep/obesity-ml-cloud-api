@@ -1,6 +1,6 @@
 # 🧠 API de Predicción del Nivel de Obesidad
 
-## 🚀 Proyecto de MLOps con FastAPI, Docker y GitHub Actions
+## 🚀 Proyecto MLOps utilizando FastAPI, Docker y GitHub Actions
 
 ![Python](https://img.shields.io/badge/Python-3.10-blue?logo=python)
 ![FastAPI](https://img.shields.io/badge/FastAPI-0.141-009688?logo=fastapi)
@@ -12,11 +12,11 @@
 
 ---
 
-# 📖 Descripción del Proyecto
+# 📖 Descripción
 
-Este proyecto implementa una solución completa de **Machine Learning** siguiendo principios de **MLOps (Machine Learning Operations)** para predecir el **nivel de obesidad** de una persona utilizando variables antropométricas y hábitos de vida.
+Este proyecto implementa una solución completa de **Machine Learning** siguiendo los principios de **MLOps (Machine Learning Operations)** para predecir el **nivel de obesidad** de una persona utilizando variables antropométricas y hábitos de vida.
 
-La solución fue desarrollada con un enfoque orientado a producción, integrando herramientas ampliamente utilizadas en la industria para el despliegue y mantenimiento de modelos de Machine Learning.
+La solución fue desarrollada con un enfoque orientado a producción, integrando herramientas ampliamente utilizadas en la industria para el desarrollo, despliegue y mantenimiento de modelos de Machine Learning.
 
 El proyecto contempla todo el ciclo de vida de un modelo:
 
@@ -24,7 +24,7 @@ El proyecto contempla todo el ciclo de vida de un modelo:
 - 🤖 Entrenamiento del modelo
 - 💾 Serialización del modelo
 - 🌐 Exposición mediante API REST
-- 📑 Documentación automática
+- 📄 Documentación automática con Swagger
 - 🧪 Pruebas automatizadas
 - 🐳 Contenerización con Docker
 - ⚙️ Integración Continua mediante GitHub Actions
@@ -33,31 +33,35 @@ El proyecto contempla todo el ciclo de vida de un modelo:
 
 # 🎯 Objetivos
 
-Los principales objetivos del proyecto son:
+Este proyecto tiene como objetivos principales:
 
-- Implementar un modelo de Machine Learning para clasificación.
-- Exponer el modelo mediante una API REST utilizando FastAPI.
-- Automatizar las pruebas unitarias.
-- Documentar automáticamente la API mediante Swagger.
+- Implementar un modelo de clasificación utilizando Machine Learning.
+- Exponer el modelo mediante una API REST desarrollada con FastAPI.
+- Validar el funcionamiento mediante pruebas unitarias.
+- Automatizar la documentación de la API con Swagger.
 - Contenerizar la aplicación utilizando Docker.
-- Automatizar el proceso de validación mediante GitHub Actions.
+- Implementar un pipeline de Integración Continua (CI).
 - Aplicar buenas prácticas de desarrollo y MLOps.
 
 ---
 
 # 📚 Tabla de Contenidos
 
-- [📖 Descripción del Proyecto](#-descripción-del-proyecto)
-- [🎯 Objetivos](#-objetivos)
-- [🏗 Arquitectura General](#-arquitectura-general)
-- [🔄 Flujo MLOps](#-flujo-mlops)
-- [🛠 Tecnologías Utilizadas](#-tecnologías-utilizadas)
-- [🤖 Modelo de Machine Learning](#-modelo-de-machine-learning)
-- [📂 Estructura del Proyecto](#-estructura-del-proyecto)
-- [📦 Instalación](#-instalación)
-- [▶️ Ejecución Local](#️-ejecución-local)
-- [🐳 Docker](#-docker)
-- [🐳 Docker Compose](#-docker-compose)
+- 📖 Descripción
+- 🎯 Objetivos
+- 🏗 Arquitectura General
+- 🔄 Flujo MLOps
+- 🛠 Tecnologías Utilizadas
+- 🤖 Modelo de Machine Learning
+- 📂 Estructura del Proyecto
+- 📦 Instalación
+- ▶️ Ejecución Local
+- 🐳 Docker
+- 🐳 Docker Compose
+- 🌐 Endpoints
+- 🧪 Testing
+- ⚙️ GitHub Actions
+- 📌 Conclusiones
 
 ---
 
@@ -80,32 +84,12 @@ Los principales objetivos del proyecto son:
 
 ```mermaid
 flowchart LR
-
-A[Dataset]
-
--->
-
-B[Entrenamiento]
-
--->
-
-C[Modelo Random Forest]
-
--->
-
-D[FastAPI]
-
--->
-
-E[Docker]
-
--->
-
-F[GitHub Actions]
-
--->
-
-G[Usuario]
+    A[Dataset] --> B[Entrenamiento]
+    B --> C[Modelo Random Forest]
+    C --> D[FastAPI]
+    D --> E[Docker]
+    E --> F[GitHub Actions]
+    F --> G[Usuario]
 ```
 
 La arquitectura separa claramente el entrenamiento del modelo y la inferencia, permitiendo reutilizar el modelo entrenado sin necesidad de volver a entrenarlo.
@@ -115,37 +99,14 @@ La arquitectura separa claramente el entrenamiento del modelo y la inferencia, p
 # 🔄 Flujo MLOps
 
 ```mermaid
-flowchart TD
-
-A[Dataset]
-
--->
-
-B[Preprocesamiento]
-
--->
-
-C[Entrenamiento]
-
--->
-
-D[Evaluación]
-
--->
-
-E[Modelo Serializado]
-
--->
-
-F[API FastAPI]
-
--->
-
-G[Docker]
-
--->
-
-H[GitHub Actions]
+flowchart LR
+    A[Dataset] --> B[Preprocesamiento]
+    B --> C[Entrenamiento]
+    C --> D[Evaluación]
+    D --> E[Modelo Serializado]
+    E --> F[API FastAPI]
+    F --> G[Docker]
+    G --> H[GitHub Actions]
 ```
 
 ---
@@ -157,9 +118,9 @@ H[GitHub Actions]
 | 🐍 Python 3.10 | Lenguaje de programación |
 | ⚡ FastAPI | Framework para la API REST |
 | 📊 Pandas | Manipulación de datos |
-| 🤖 Scikit-Learn | Entrenamiento del modelo |
+| 🤖 Scikit-Learn | Desarrollo del modelo |
 | 🧪 Pytest | Pruebas automatizadas |
-| 🎨 Ruff | Calidad del código |
+| 🎨 Ruff | Linter y calidad del código |
 | 🐳 Docker | Contenerización |
 | 📦 Docker Compose | Orquestación local |
 | ⚙️ GitHub Actions | Integración Continua |
@@ -200,7 +161,9 @@ Obesity
 
 - Random Forest Classifier
 
-## 📦 Artefactos Generados
+---
+
+# 📦 Artefactos Generados
 
 ```
 models/
@@ -216,16 +179,17 @@ Modelo entrenado listo para realizar predicciones.
 
 ### encoders.pkl
 
-Codificadores utilizados para transformar variables categóricas.
+Codificadores utilizados para transformar las variables categóricas.
 
 ### metadata.json
 
-Archivo que almacena información del modelo:
+Contiene información relevante del modelo:
 
 - Accuracy
 - Variables utilizadas
 - Variable objetivo
-- Parámetros del entrenamiento
+- Número de muestras
+- Parámetros de entrenamiento
 
 ---
 
@@ -235,7 +199,6 @@ Archivo que almacena información del modelo:
 obesity-ml-cloud-api/
 
 │
-
 ├── app/
 │   ├── __init__.py
 │   ├── main.py
@@ -263,7 +226,8 @@ obesity-ml-cloud-api/
 ├── Dockerfile
 ├── docker-compose.yml
 ├── requirements.txt
-└── README.md
+├── README.md
+└── .gitignore
 ```
 
 ---
@@ -275,7 +239,7 @@ obesity-ml-cloud-api/
 | 📂 app | Implementación de la API REST |
 | 🤖 training | Entrenamiento del modelo |
 | 💾 models | Modelo entrenado y artefactos |
-| 🧪 tests | Pruebas unitarias |
+| 🧪 tests | Pruebas automatizadas |
 | 📊 data | Dataset utilizado |
 | ⚙️ .github | Pipeline de GitHub Actions |
 
@@ -335,13 +299,13 @@ La aplicación estará disponible en:
 http://localhost:8000
 ```
 
-Swagger:
+Documentación Swagger:
 
 ```
 http://localhost:8000/docs
 ```
 
-OpenAPI:
+Especificación OpenAPI:
 
 ```
 http://localhost:8000/openapi.json
@@ -357,8 +321,6 @@ http://localhost:8000/openapi.json
 docker build -t obesity-api .
 ```
 
----
-
 ## Ejecutar el contenedor
 
 ```bash
@@ -369,25 +331,25 @@ docker run -p 8000:8000 obesity-api
 
 # 🐳 Docker Compose
 
-Para levantar todo el proyecto:
+Levantar el proyecto completo:
 
 ```bash
 docker compose up --build
 ```
 
-Para detener los servicios:
+Detener el proyecto:
 
 ```bash
 docker compose down
 ```
 
-Docker Compose construye la imagen, inicia la API y deja disponible la documentación Swagger en el puerto **8000**.
+Docker Compose construye automáticamente la imagen, inicia el contenedor y deja disponible la API en el puerto **8000**.
 
 ---
 
 # 🌐 Endpoints de la API
 
-La API expone cinco endpoints principales que permiten consultar el estado del servicio, obtener información del modelo y realizar predicciones individuales o por lotes.
+La API expone cinco endpoints principales para consultar el estado del servicio, obtener información del modelo y realizar predicciones individuales y por lotes.
 
 ---
 
@@ -405,8 +367,8 @@ GET /
 
 ```json
 {
-    "message": "Obesity Prediction API",
-    "version": "1.0.0"
+  "message": "Obesity Prediction API",
+  "version": "1.0.0"
 }
 ```
 
@@ -414,7 +376,7 @@ GET /
 
 ## ❤️ GET /health
 
-Permite verificar que la API y el modelo se encuentren correctamente cargados.
+Permite verificar que la API y el modelo se encuentran correctamente cargados.
 
 ### Request
 
@@ -426,40 +388,34 @@ GET /health
 
 ```json
 {
-    "status": "ok",
-    "model_loaded": true
+  "status": "ok",
+  "model_loaded": true
 }
 ```
 
-Este endpoint es utilizado por Docker y GitHub Actions para verificar el correcto funcionamiento del servicio.
+Este endpoint es utilizado tanto por Docker como por GitHub Actions para verificar que la aplicación se encuentra operativa.
 
 ---
 
 ## 📊 GET /model/schema
 
-Entrega información del modelo entrenado.
+Entrega la metadata del modelo entrenado.
 
-### Request
-
-```http
-GET /model/schema
-```
-
-### Información retornada
+La información incluye:
 
 - Variables utilizadas por el modelo.
 - Variable objetivo.
 - Accuracy del modelo.
-- Cantidad de muestras utilizadas.
+- Número de muestras utilizadas.
 - Parámetros de entrenamiento.
 
 ---
 
 ## 🔮 POST /predict
 
-Realiza una predicción individual.
+Realiza una predicción para un único registro.
 
-### Request
+### Ejemplo de Request
 
 ```json
 {
@@ -486,7 +442,7 @@ Realiza una predicción individual.
 
 ```json
 {
-    "prediction": "Normal_Weight"
+  "prediction": "Normal_Weight"
 }
 ```
 
@@ -494,16 +450,16 @@ Realiza una predicción individual.
 
 ## 📦 POST /predict/batch
 
-Permite enviar múltiples registros en una sola solicitud.
+Permite enviar múltiples registros para obtener varias predicciones en una única solicitud.
 
 ### Response
 
 ```json
 {
-    "predictions": [
-        "Normal_Weight",
-        "Overweight_Level_I"
-    ]
+  "predictions": [
+    "Normal_Weight",
+    "Overweight_Level_I"
+  ]
 }
 ```
 
@@ -511,7 +467,7 @@ Permite enviar múltiples registros en una sola solicitud.
 
 # 📑 Documentación Swagger
 
-FastAPI genera automáticamente la documentación interactiva.
+FastAPI genera automáticamente la documentación interactiva de la API.
 
 Disponible en:
 
@@ -527,8 +483,8 @@ http://localhost:8000/openapi.json
 
 Swagger permite:
 
-- Visualizar todos los endpoints.
-- Ejecutar pruebas directamente desde el navegador.
+- Visualizar todos los endpoints disponibles.
+- Ejecutar solicitudes directamente desde el navegador.
 - Revisar ejemplos de Request y Response.
 - Consultar el esquema completo de la API.
 
@@ -538,7 +494,7 @@ Swagger permite:
 
 El proyecto incorpora pruebas unitarias utilizando **Pytest**.
 
-Ejecutar:
+Para ejecutarlas:
 
 ```bash
 python -m pytest tests/test_api.py -v
@@ -559,18 +515,16 @@ Las pruebas consideran los siguientes escenarios:
 Resultado esperado:
 
 ```text
-=========================
-
+==========================
 9 passed
-
-=========================
+==========================
 ```
 
 ---
 
 # 🎨 Calidad del Código
 
-La calidad del código es validada mediante **Ruff**.
+La calidad del código es validada utilizando **Ruff**.
 
 Ejecutar:
 
@@ -590,55 +544,44 @@ ruff check . --fix
 
 El proyecto incorpora un pipeline automático utilizando **GitHub Actions**.
 
-Cada vez que se realiza un **Push** sobre la rama principal, el pipeline ejecuta automáticamente las siguientes tareas:
+Cada vez que se realiza un **Push** o un **Pull Request**, el pipeline ejecuta automáticamente las siguientes tareas:
 
 - Instalación de dependencias.
-- Validación del código con Ruff.
-- Ejecución de pruebas con Pytest.
+- Validación del código mediante Ruff.
+- Ejecución de pruebas unitarias.
 - Construcción de la imagen Docker.
-- Levantamiento del contenedor.
+- Ejecución del contenedor.
 - Verificación del endpoint `/health`.
 
 ---
 
-## 🔄 Flujo del Pipeline
+# 🔄 Pipeline de Integración Continua
 
 ```mermaid
 flowchart LR
+    A[Push o Pull Request] --> B[GitHub Actions]
+    B --> C[Instalar Dependencias]
+    C --> D[Ruff]
+    D --> E[Pytest]
+    E --> F[Docker Build]
+    F --> G[Docker Run]
+    G --> H[Health Check]
+    H --> I[Pipeline Exitoso]
+```
 
-A[Push a GitHub]
+---
 
--->
+# 📈 Flujo de Predicción
 
-B[GitHub Actions]
-
--->
-
-C[Instalación de Dependencias]
-
--->
-
-D[Ruff]
-
--->
-
-E[Pytest]
-
--->
-
-F[Docker Build]
-
--->
-
-G[Docker Run]
-
--->
-
-H[Health Check]
-
--->
-
-I[Pipeline Exitoso]
+```mermaid
+flowchart LR
+    A[Cliente] --> B[API FastAPI]
+    B --> C[Validación]
+    C --> D[Preprocesamiento]
+    D --> E[Label Encoder]
+    E --> F[Modelo Random Forest]
+    F --> G[Predicción]
+    G --> H[Respuesta JSON]
 ```
 
 ---
@@ -647,7 +590,7 @@ I[Pipeline Exitoso]
 
 La aplicación fue diseñada para ejecutarse completamente mediante Docker.
 
-Ventajas:
+Beneficios:
 
 - 📦 Portabilidad.
 - 🔄 Reproducibilidad.
@@ -656,65 +599,31 @@ Ventajas:
 
 ---
 
-# 📊 Flujo de Predicción
-
-```mermaid
-flowchart LR
-
-Cliente
-
--->
-
-API FastAPI
-
--->
-
-Validación
-
--->
-
-Label Encoder
-
--->
-
-Modelo Random Forest
-
--->
-
-Predicción
-
--->
-
-Respuesta JSON
-```
-
----
-
 # ✅ Buenas Prácticas Implementadas
 
-Durante el desarrollo del proyecto se aplicaron distintas prácticas recomendadas para soluciones de Machine Learning:
+Durante el desarrollo del proyecto se aplicaron diversas buenas prácticas de ingeniería de Machine Learning:
 
 - Arquitectura modular.
 - Separación entre entrenamiento e inferencia.
-- Serialización del modelo.
-- Validación mediante Pydantic.
-- Documentación automática con Swagger.
+- Modelo serializado mediante Pickle.
+- Validación de datos con Pydantic.
+- Documentación automática mediante Swagger.
 - Pruebas unitarias.
 - Contenerización con Docker.
-- Integración Continua.
-- Control de calidad mediante Ruff.
+- Integración Continua mediante GitHub Actions.
+- Validación de calidad utilizando Ruff.
 
 ---
 
 # 🚀 Mejoras Futuras
 
-Como trabajo futuro, el proyecto podría incorporar:
+Como trabajo futuro podrían incorporarse nuevas funcionalidades, entre ellas:
 
 - 🔐 Autenticación mediante JWT.
-- ☁️ Despliegue en Azure o AWS.
-- 📈 Monitoreo del desempeño del modelo.
+- ☁️ Despliegue en Azure, AWS o Google Cloud.
+- 📈 Monitoreo del rendimiento del modelo.
 - 📊 Integración con MLflow.
-- 🗄 Registro de predicciones en base de datos.
+- 🗄️ Registro de predicciones en una base de datos.
 - 🔄 Reentrenamiento automático del modelo.
 - 🚀 Pipeline de Continuous Deployment (CD).
 
@@ -723,13 +632,13 @@ Como trabajo futuro, el proyecto podría incorporar:
 # ⚠️ Troubleshooting
 
 | Problema | Solución |
-|-----------|----------|
+|----------|----------|
 | Swagger no carga | Verificar que la API esté ejecutándose. |
 | Docker no inicia | Ejecutar `docker compose down` y luego `docker compose up --build`. |
-| Error `ModuleNotFoundError` | Revisar la estructura del proyecto y el `PYTHONPATH`. |
-| No encuentra `model.pkl` | Confirmar que exista dentro de la carpeta `models/`. |
-| Fallan los tests | Ejecutar `python -m pytest tests/test_api.py -v`. |
-| Error en GitHub Actions | Revisar el workflow `ci.yml` y los logs del pipeline. |
+| Error `ModuleNotFoundError` | Revisar la estructura del proyecto y el PYTHONPATH. |
+| No encuentra `model.pkl` | Confirmar que exista dentro de la carpeta `models`. |
+| Fallan las pruebas | Ejecutar `python -m pytest tests/test_api.py -v`. |
+| Error en GitHub Actions | Revisar el archivo `ci.yml` y los logs del pipeline. |
 
 ---
 
@@ -737,26 +646,30 @@ Como trabajo futuro, el proyecto podría incorporar:
 
 Este proyecto demuestra la implementación de un flujo completo de **MLOps** para un problema de clasificación utilizando Machine Learning.
 
-La solución integra el entrenamiento del modelo, la exposición mediante una API REST, la documentación automática, las pruebas unitarias, la contenerización con Docker y la integración continua mediante GitHub Actions.
+La solución integra el entrenamiento del modelo, la serialización de los artefactos, el despliegue mediante una API REST, la documentación automática, las pruebas unitarias, la contenerización con Docker y la integración continua mediante GitHub Actions.
 
-El resultado es una aplicación reproducible, escalable y preparada para ser desplegada en distintos entornos.
+El resultado es una aplicación modular, reproducible y preparada para ser desplegada en distintos entornos.
 
 ---
 
-# 👨‍💻 Autor
+# 👨‍💻 Autores
 
-**Cristóbal Barrientos**
+Este proyecto fue desarrollado por:
 
-Magíster en Ciencia de Datos
+- **Cristóbal Barrientos**
+- **Cristóbal Crespo**
+- **Andrés López**
 
-Universidad Adolfo Ibáñez
+**Programa:** Magíster en Ciencia de Datos
 
-Proyecto desarrollado para la asignatura **MLOps**.
+**Universidad:** Universidad Adolfo Ibáñez
+
+**Año:** 2026
 
 ---
 
 # 📄 Licencia
 
-Este proyecto fue desarrollado con fines académicos como parte del programa de **Magíster en Ciencia de Datos** de la **Universidad Adolfo Ibáñez**.
+Este proyecto fue desarrollado con fines académicos para la asignatura de **MLOps** del programa de **Magíster en Ciencia de Datos** de la **Universidad Adolfo Ibáñez**.
 
 Su uso es exclusivamente educativo.

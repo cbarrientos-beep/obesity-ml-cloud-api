@@ -642,13 +642,29 @@ Como trabajo futuro podrían incorporarse nuevas funcionalidades, entre ellas:
 
 ---
 
-# 📌 Conclusiones
+# 🎯 Conclusiones
 
 Este proyecto demuestra la implementación de un flujo completo de **MLOps** para un problema de clasificación utilizando Machine Learning.
 
 La solución integra el entrenamiento del modelo, la serialización de los artefactos, el despliegue mediante una API REST, la documentación automática, las pruebas unitarias, la contenerización con Docker y la integración continua mediante GitHub Actions.
 
 El resultado es una aplicación modular, reproducible y preparada para ser desplegada en distintos entornos.
+
+---
+
+# ⚠️ Limitaciones
+
+Si bien el proyecto cumple con los objetivos planteados para la asignatura, existen oportunidades de mejora que podrían incorporarse en una versión de producción:
+
+- 🔒 Incorporar autenticación y autorización mediante JWT para proteger los endpoints.
+- ☁️ Desplegar la API en un servicio Cloud (Azure, AWS o Google Cloud).
+- 📊 Implementar monitoreo del rendimiento del modelo y de la API en producción.
+- 🔄 Automatizar el reentrenamiento del modelo cuando se disponga de nuevos datos.
+- 🗄️ Registrar las predicciones en una base de datos para facilitar auditorías y análisis posteriores.
+- 📈 Incorporar métricas avanzadas para detectar deriva del modelo (*Model Drift*).
+- 🚀 Implementar un pipeline completo de **Continuous Deployment (CD)** para automatizar el despliegue.
+
+Estas mejoras no fueron implementadas debido al alcance académico del proyecto, pero representan una evolución natural para una solución orientada a producción.
 
 ---
 
@@ -673,3 +689,4 @@ Este proyecto fue desarrollado por:
 Este proyecto fue desarrollado con fines académicos para la asignatura de **MLOps** del programa de **Magíster en Ciencia de Datos** de la **Universidad Adolfo Ibáñez**.
 
 Su uso es exclusivamente educativo.
+

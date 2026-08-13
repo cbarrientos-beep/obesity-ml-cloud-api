@@ -1,0 +1,39 @@
+{
+    "model_type": "RandomForestClassifier",
+    "target": "Obesity",
+    "features": [
+        "Gender",
+        "Age",
+        "Height",
+        "Weight",
+        "family_history",
+        "FAVC",
+        "FCVC",
+        "NCP",
+        "CAEC",
+        "SMOKE",
+        "CH2O",
+        "SCC",
+        "FAF",
+        "TUE",
+        "CALC",
+        "MTRANS"
+    ],
+    "categorical_features": [
+        "Gender",
+        "family_history",
+        "FAVC",
+        "CAEC",
+        "SMOKE",
+        "SCC",
+        "CALC",
+        "MTRANS"
+    ],
+    "accuracy": 0.9527186761229315,
+    "random_state": 42,
+    "test_size_ratio": 0.2,
+    "train_samples": 1688,
+    "test_samples": 423,
+    "total_samples": 2111,
+    "n_estimators": 100
+}

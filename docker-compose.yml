@@ -1,0 +1,6 @@
+services:
+  obesity-api:
+    build: .
+    container_name: obesity-mlops-api
+    ports:
+      - "8000:8000"

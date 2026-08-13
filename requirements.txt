@@ -1,4 +1,6 @@
-pandas
-scikit-learn
-fastapi
-uvicorn
+pandas==2.3.3
+scikit-learn==1.6.1
+fastapi==0.141.1
+uvicorn==0.52.1
+pytest==9.1.1
+httpx==0.28.1

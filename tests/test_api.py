@@ -2,7 +2,6 @@ from fastapi.testclient import TestClient
 
 from app.main import app
 
-
 # ======================================================
 # 1. Crear cliente de prueba
 # ======================================================

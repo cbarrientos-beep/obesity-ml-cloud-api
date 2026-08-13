@@ -1,17 +1,15 @@
 from fastapi import FastAPI, HTTPException
 
+from app.predictor import (
+    metadata,
+    predict_batch,
+    predict_single,
+)
 from app.schemas import (
+    HealthResponse,
     PredictionRequest,
     PredictionResponse,
-    HealthResponse,
 )
-
-from app.predictor import (
-    predict_single,
-    predict_batch,
-    metadata,
-)
-
 
 # ======================================================
 # 1. Crear aplicación FastAPI
@@ -83,7 +81,7 @@ def predict(request: PredictionRequest):
             prediction=prediction
         )
 
-    except Exception as e:
+    except ValueError as e:
 
         raise HTTPException(
             status_code=400,
@@ -113,7 +111,7 @@ def predict_multiple(
             "predictions": predictions
         }
 
-    except Exception as e:
+    except ValueError as e:
 
         raise HTTPException(
             status_code=400,

@@ -1,14 +1,12 @@
-from pathlib import Path
 import json
 import pickle
+from pathlib import Path
 
 import pandas as pd
-
-from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import LabelEncoder
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score
-
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import LabelEncoder
 
 # ======================================================
 # 0. Definir rutas del proyecto
@@ -192,11 +190,11 @@ metadata = {
 
     "test_size_ratio": 0.20,
 
-    "train_samples": int(len(X_train)),
+    "train_samples": len(X_train),
 
-    "test_samples": int(len(X_test)),
+    "test_samples": len(X_test),
 
-    "total_samples": int(len(df)),
+    "total_samples": len(df),
 
     "n_estimators": 100,
 }

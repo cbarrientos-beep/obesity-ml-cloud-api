@@ -1,9 +1,8 @@
-from pathlib import Path
 import json
 import pickle
+from pathlib import Path
 
 import pandas as pd
-
 
 # ======================================================
 # 1. Definir rutas de los artefactos

@@ -1,6 +1,5 @@
 from pydantic import BaseModel, Field
 
-
 # ======================================================
 # 1. Esquema de entrada para predicción
 # ======================================================
